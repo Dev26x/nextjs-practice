@@ -1,4 +1,4 @@
-
+import Feed from "@components/Feed"
 
 const Home = () => {
   return (
@@ -8,6 +8,14 @@ const Home = () => {
         <br />
         <span className="orange_gradient text-center">AI-Powered Prompts</span>
       </h1>
+
+      <p className="desc text-center">
+         Prompta is an open-source Ai-prompting tool that allows users create,
+         discover and share creative prompts.
+      </p>
+
+      <Feed />
+      
     </section>
   )
 }

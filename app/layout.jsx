@@ -1,4 +1,6 @@
 import '@styles/globals.css';
+import Nav from '@components/Nav';
+import Provider from '@components/Provider';
 
 export const metadata = {
     title: 'Prompta',
@@ -14,6 +16,7 @@ const RootLayout = ({ children }) => {
             </div>
 
             <main>
+                <Nav />
                 {children}
             </main>
         </body>
