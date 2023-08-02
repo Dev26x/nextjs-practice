@@ -8,7 +8,7 @@ import { useSession, getProviders, signIn, signOut } from 'next-auth/react';
 const Nav = () => {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(true);
   const [providers, setProviders] = useState(null);
-  const [toggleDropDown, setToggleDropDown] = useState(false)
+  const [toggleDropDown, setToggleDropDown] = useState(false);
 
   useEffect(() => {
     const setProviders = async () =>{
@@ -86,8 +86,39 @@ const Nav = () => {
                 width={37}
                 height={37}
                 className='rounded-full'
-                onClick={() => setToggleDropDown(!toggleDropDown)}
+                onClick={() => setToggleDropDown((prev) => !prev)}
               />
+
+              {toggleDropDown && (
+                <div className='dropdown'>
+                  <Link 
+                    href='/profile'
+                    className='dropdown_link'
+                    onClick={() => setToggleDropDown(false)}
+                  >
+                    My profile
+                  </Link>
+                  <Link 
+                    href='/profile'
+                    className='dropdown_link'
+                    onClick={() => setToggleDropDown(false)}
+                  >
+                    Create prompt
+                  </Link>
+                  <button
+                    type='button'
+                    onClick={() => {
+                      setToggleDropDown(false);
+                      signOut();
+                    }}
+                    className='mt-5 w-full black_btn'
+                  >
+                    Sign Out
+                  </button>
+                </div>
+                )
+              }
+
              </div>) : (
              <>
                 {providers && 
